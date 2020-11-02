@@ -1,6 +1,5 @@
 const express = require('express');
 const Mailer = require(__dirname + '/classes/Mailer.js');
-const Constants = require(__dirname + '/classes/Constants.js');
 
 var app = express();
 
@@ -16,20 +15,24 @@ app.use('/assets/sass/lib', express.static(__dirname + '/assets/sass/lib'));
 app.use('/images', express.static(__dirname + '/images'));
 app.use('/pages', express.static(__dirname + '/pages'));
 app.use('/classes', express.static(__dirname + '/classes'));
-
+const pagine = __dirname + "/pages/";
+const mainDir = __dirname + "/";
 
 
 app.get('/contattami(.html)?', function (req, res) {
 
-})
+});
+
+app.get('/elements(.html)?', function (req, res) {
+  res.status(200).sendFile(pagine + "elements.html" );
+});
 
 app.get('/', function (req, res) {
-  console.log(Constants.mainDir);
-})
-
+  res.status(200).sendFile(pagine + "index.html" );
+});
 
 app.get('*', function(req, res){
-  res.status(200).sendFile( __dirname + "/" + "404.html" );
+  res.status(200).sendFile(pagine + "404.html" );
 });
 
 const PORT = process.env.PORT || 3000;

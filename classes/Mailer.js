@@ -1,8 +1,7 @@
 const nodemailer = require("nodemailer");
 
 class Mailer {
-    const smtpTrans;
-    constructor(serviceAccount){
+    constructor(){
       this.smtpTrans = nodemailer.createTransport({
           host: 'smtp.gmail.com',
           port: 465,
@@ -13,15 +12,15 @@ class Mailer {
           }
       });
     }
-    function sendEmail(callback) {
-      const mailOpts = {
+    sendEmail(callback) {
+      this.mailOpts = {
           from: ''+req.body.email, // This is ignored by Gmail
-          to: 'coviditalia.net@gmail.com',
-          subject: 'Nuovo messaggio da un utente www.coviditalia.net',
-          text: `${req.body.name} (${req.body.email}) dice: ${req.body.message}`
+          to: '',
+          subject: '',
+          //text: `${req.body.name} (${req.body.email}) dice: ${req.body.message}`
         }
       // Attempt to send the email
-      smtpTrans.sendMail(mailOpts, (error, response) => {
+      this.smtpTrans.sendMail(this.mailOpts, (error, response) => {
           if (error) {
             callback({error: error, statusCode: 403});
           }

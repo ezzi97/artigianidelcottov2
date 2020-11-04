@@ -28,6 +28,7 @@
 		});
 
 	// Menu.
+
 		$('#menu')
 			.append('<a href="#menu" class="close"></a>')
 			.appendTo($body)
@@ -41,6 +42,6 @@
 				resetForms: true,
 				side: 'right'
 			});
-		
+
 
 })(jQuery);

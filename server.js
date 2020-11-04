@@ -5,7 +5,7 @@ var app = express();
 
 app.use(express.static(__dirname + 'public'));
 app.use('/assets/js', express.static(__dirname + '/assets/js'));
-app.use('/assets/webfonts', express.static(__dirname + '/assets/webfonts'));
+app.use('/assets/fonts', express.static(__dirname + '/assets/fonts'));
 app.use('/assets/css', express.static(__dirname + '/assets/css'));
 app.use('/assets/sass', express.static(__dirname + '/assets/sass'));
 app.use('/assets/sass/base', express.static(__dirname + '/assets/sass/base'));
@@ -19,12 +19,16 @@ const pagine = __dirname + "/pages/";
 const mainDir = __dirname + "/";
 
 
-app.get('/contattami(.html)?', function (req, res) {
-
+app.get('/contattaci(.html)?', function (req, res) {
+  res.status(200).sendFile(pagine + "contattaci.html" );
 });
 
-app.get('/elements(.html)?', function (req, res) {
-  res.status(200).sendFile(pagine + "elements.html" );
+app.get('/i_nostri_lavori(.html)?', function (req, res) {
+  res.status(200).sendFile(pagine + "lavori.html" );
+});
+
+app.get('/chi_siamo(.html)?', function (req, res) {
+  res.status(200).sendFile(pagine + "chisiamo.html" );
 });
 
 app.get('/', function (req, res) {

@@ -1,0 +1,25 @@
+{
+  "name": "artigianidelcotto",
+  "version": "1.0.0",
+  "description": "a website for Luca Poletto father's activity",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezzi97/artigianidelcotto.git"
+  },
+  "author": "Ezzi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ezzi97/artigianidelcotto/issues"
+  },
+  "homepage": "https://github.com/ezzi97/artigianidelcotto#readme"
+}

@@ -11,7 +11,6 @@
       move_with_handle_only: true,
       click_to_move: false
     }, options);
-
     return this.each(function() {
 
       var sliderPct = options.default_offset_pct;

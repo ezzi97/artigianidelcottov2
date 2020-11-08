@@ -42,6 +42,6 @@
 				resetForms: true,
 				side: 'right'
 			});
-
+			
 
 })(jQuery);

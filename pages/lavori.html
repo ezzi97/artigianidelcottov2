@@ -34,44 +34,61 @@
 		</nav>
 
 		<!-- Heading -->
-			<div id="heading" >
+			<!--div id="heading" >
 				<h1>I nostri lavori</h1>
-			</div>
+			</div-->
+			<section class="wrapper">
+				<div class="inner">
+					<header class="special">
+						<h3>I nostri lavori</h3>
+						<p>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Magna et cursus lorem faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod tempus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget.</p>
+					</header>
+				</div>
+			</section>
 
 		<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="inner">
 					<div class="content">
-
 					<!-- Elements -->
 						<div class="row">
-							<div class="col-4 col-6-medium col-12-small">
+							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
 									<div class="twentytwenty-container">
 										 <!-- The before image is first -->
-										 <img src="/images/before_01.jpg" alt="" />
+										 <img src="/images/before_after/before_01.jpeg" alt="" />
 										 <!-- The after image is last -->
-										 <img src="/images/after_01.jpg" alt="" />
+										 <img src="/images/before_after/after_01.jpeg" alt="" />
 									</div>
 								</span>
 							</div>
-							<div class="col-4 col-6-medium col-12-small">
+							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
 									<div class="twentytwenty-container">
 										 <!-- The before image is first -->
-										 <img src="/images/before_02.jpg" alt="" />
+										 <img src="/images/before_after/before_02.jpeg" alt="" />
 										 <!-- The after image is last -->
-										 <img src="/images/after_02.jpg" alt="" />
+										 <img src="/images/before_after/after_02.jpeg" alt="" />
 									</div>
 								</span>
 							</div>
-							<div class="col-4 col-6-medium col-12-small">
+							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
 									<div class="twentytwenty-container">
 										 <!-- The before image is first -->
-										 <img src="/images/before_03.jpg" alt="" />
+										 <img src="/images/before_after/before_03.jpeg" alt="" />
 										 <!-- The after image is last -->
-										 <img src="/images/after_03.jpg" alt="" />
+										 <img src="/images/before_after/after_03.jpeg" alt="" />
+									</div>
+								</span>
+							</div>
+							<div class="col-6 col-6-medium col-12-small">
+								<span class="image fit">
+									<div class="twentytwenty-container">
+										 <!-- The before image is first -->
+										 <img src="/images/before_after/before_04.jpeg" alt="" />
+										 <!-- The after image is last -->
+										 <img src="/images/before_after/after_04.jpeg" alt="" />
 									</div>
 								</span>
 							</div>
@@ -122,9 +139,10 @@
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
 			<script>
-				$(function() {
-					$(".twentytwenty-container").twentytwenty();
-				});
+			//$(".twentytwenty-container").twentytwenty();
+			$(window).on("load", function() {
+				$(".twentytwenty-container").twentytwenty();
+			});
 			</script>
 	</body>
 </html>

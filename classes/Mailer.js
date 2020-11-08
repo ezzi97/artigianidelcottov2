@@ -12,9 +12,9 @@ class Mailer {
           }
       });
     }
-    sendEmail(callback) {
+    sendEmail(params, callback) {
       this.mailOpts = {
-          from: ''+req.body.email, // This is ignored by Gmail
+          from: '', // This is ignored by Gmail
           to: '',
           subject: '',
           //text: `${req.body.name} (${req.body.email}) dice: ${req.body.message}`

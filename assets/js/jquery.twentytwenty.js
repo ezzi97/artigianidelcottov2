@@ -12,6 +12,7 @@
       click_to_move: false
     }, options);
     $(window).load(function() {
+      $("#caricamento").hide();
       $(window).trigger("resize.twentytwenty");
     });
     return this.each(function() {

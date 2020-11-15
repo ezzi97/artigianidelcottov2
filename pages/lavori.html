@@ -159,9 +159,13 @@
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
 			<script>
+			$(document).ready(function() {
+				$(".twentytwenty-container").hide();
+				$(".twentytwenty-container").twentytwenty();
+			});
 			$(window).on("load", function() {
 				$("#caricamento").hide();
-				$(".twentytwenty-container").twentytwenty();
+				$(".twentytwenty-container").show("slow");
 			});
 			</script>
 	</body>

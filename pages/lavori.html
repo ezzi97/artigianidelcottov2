@@ -151,6 +151,7 @@
 		</div>
 		<!-- Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>
+			<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 			<script src="/assets/js/jquery.event.move.js" type="text/javascript"></script>
 			<script src="/assets/js/jquery.twentytwenty.js" type="text/javascript"></script>
 			<script src="/assets/js/browser.min.js"></script>
@@ -159,7 +160,7 @@
 			<script src="/assets/js/main.js"></script>
 			<script>
 			//$(".twentytwenty-container").twentytwenty();
-			$(window).on("load", function() {
+			$('.twentytwenty-container').imagesLoaded( function() {
 				$("#caricamento").hide();
 				$(".twentytwenty-container").twentytwenty();
 			});

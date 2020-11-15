@@ -7,9 +7,11 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/floating-wpp.css">
 	</head>
 	<body class="is-preload">
 	<div id="main">
+		<div id="myButton"></div>
 		<!-- Header -->
 			<header id="header">
 				<a class="logo" href="/">Artigiani del cotto</a>
@@ -102,6 +104,19 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="/assets/js/floating-wpp.min.js"></script>
 
+			<script type="text/javascript">
+			  $(function () {
+			    $('#myButton').floatingWhatsApp({
+						phone: '+393294935818',
+				    popupMessage: 'Ciao, come ti posso aiutare?',
+				    message: "Ciao, volevo alcune informazioni inerenti alla vostra attività",
+				    showPopup: true,
+				    showOnIE: false,
+				    headerTitle: 'Artigiano del cotto'
+			    });
+			  });
+			</script>
 	</body>
 </html>

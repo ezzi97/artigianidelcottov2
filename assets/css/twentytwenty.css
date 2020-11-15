@@ -79,7 +79,6 @@
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   z-index: 0;
-  min-height: 200px;
   overflow: hidden;
   position: relative;
   -webkit-user-select: none;

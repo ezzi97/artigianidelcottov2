@@ -37,13 +37,13 @@
   transition-property: opacity; }
 
 .twentytwenty-before-label:before, .twentytwenty-after-label:before {
-  color: white;
+  color: black;
   font-size: 13px;
   letter-spacing: 0.1em; }
 
 .twentytwenty-before-label:before, .twentytwenty-after-label:before {
   position: absolute;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
   line-height: 38px;
   padding: 0 20px;
   -webkit-border-radius: 2px;

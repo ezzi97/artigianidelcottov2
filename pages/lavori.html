@@ -37,11 +37,11 @@
 			<!--div id="heading" >
 				<h1>I nostri lavori</h1>
 			</div-->
-			<section class="wrapper">
+			<section class="wrapper" id="heading">
 				<div class="inner">
 					<header class="special">
-						<h3>I nostri lavori</h3>
-						<p>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Magna et cursus lorem faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod tempus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget.</p>
+						<h2>I nostri lavori</h2>
+						<p>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Magna et cursus lorem faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod tempus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida lorem ipsum dolor sit amet dolor feugiat consequat.</p>
 					</header>
 				</div>
 			</section>
@@ -52,6 +52,25 @@
 					<div class="content">
 					<!-- Elements -->
 						<div class="row">
+							<div class="col-12 col-12-medium col-12-small" id="caricamento">
+								<div class="no-freeze-spinner">
+								  <div id="no-freeze-spinner">
+								    <div>
+								      <i class="material-icons">
+								       supervisor_account
+								      </i>
+								      <i class="material-icons">
+								        work
+								      </i>
+								      <i class="material-icons">
+								        thumb_up
+								      </i>
+								      <div>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
 									<div class="twentytwenty-container">
@@ -141,6 +160,7 @@
 			<script>
 			//$(".twentytwenty-container").twentytwenty();
 			$(window).on("load", function() {
+				$("#caricamento").hide();
 				$(".twentytwenty-container").twentytwenty();
 			});
 			</script>

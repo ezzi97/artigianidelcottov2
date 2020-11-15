@@ -1,5 +1,6 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 /*
 	Industrious by TEMPLATED
 	templated.co @templatedco
@@ -527,8 +528,8 @@ textarea {
   input[type="url"]:focus,
   select:focus,
   textarea:focus {
-    border-color: #ce1b28;
-    box-shadow: 0 0 0 1px #ce1b28; }
+    border-color: #05386B;
+    box-shadow: 0 0 0 1px #05386B; }
 
 select {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(0, 0, 0, 0.25)' /%3E%3C/svg%3E"); }
@@ -571,7 +572,9 @@ ol {
   margin: 0 0 2rem 0;
   padding-left: 1.25rem; }
   ol li {
-    padding-left: 0.25rem; }
+    padding-left: 0.25rem;
+    font-family: "ui-monospace";
+  }
 
 ul {
   list-style: disc;
@@ -2157,7 +2160,7 @@ nav.notresponsive a:hover:after {
     opacity: 1; }
 
 /* CTA */
-#cta::before {
+#cta:before {
   -moz-transition: opacity 1.5s ease;
   -webkit-transition: opacity 1.5s ease;
   -ms-transition: opacity 1.5s ease;
@@ -2238,7 +2241,7 @@ nav.notresponsive a:hover:after {
     color: #ffffff; }
   #cta strong, #cta b {
     color: #ffffff; }
-  #cta h1, #cta h2, #cta h3, #cta h4, #cta h5, #cta h6 {
+  #cta h1, #cta h2, #cta h3, #cta h4, #cta h5, #cta h6, #heading h2 {
     color: #ffffff;
     font-weight: 500;
     -webkit-text-stroke-width: 0.75px;
@@ -2378,7 +2381,11 @@ nav.notresponsive a:hover:after {
 #footer {
   /*background-color: #111111;*/
   color: rgba(255, 255, 255, 1);
-  padding: 8rem 0 6rem 0 ; }
+  background: #F0AAAA;
+  background-image: url(../../images/gradient-pink.jpg);
+  background-size: cover;
+  padding: 8rem 0 3rem 0 ;
+  margin-top: 3rem;}
   #footer input, #footer select, #footer textarea {
     color: #ffffff; }
   #footer a {
@@ -2534,7 +2541,8 @@ nav.notresponsive a:hover:after {
         padding-left: 4rem; }
   #footer .copyright {
     /*border-top: 1px solid #05386B;*/
-    color: #05386B;
+    color: white;
+    font-weight: bold;
     font-size: 0.8rem;
     opacity: 1;
     padding: 2rem 0;
@@ -2542,7 +2550,7 @@ nav.notresponsive a:hover:after {
     cursor: default;}
   @media screen and (max-width: 1280px) {
     #footer {
-      padding: 4rem 0 2rem 0 ; } }
+      padding: 4em 0 0 0 ; } }
   @media screen and (max-width: 980px) {
     #footer .content {
       -moz-flex-wrap: wrap;
@@ -2670,7 +2678,7 @@ body {
   -ms-flex-align: center;
   -ms-flex-pack: center;
   background-color: #85DCBA;
-  color: #05386B;
+  color: white;
   -moz-align-items: center;
   -webkit-align-items: center;
   -ms-align-items: center;
@@ -2683,15 +2691,13 @@ body {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  background: linear-gradient(135deg, #e8a87c 0%, #85DCBA 74%);
-  background-image: url(../../images/banner.jpg);
+  background: linear-gradient(135deg, #348f50 0%, #56b4d3 74%);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   border-top: 0;
   display: -ms-flexbox;
-  height: 10rem !important;
   min-height: 10rem;
   overflow: hidden;
   position: relative;
@@ -2857,17 +2863,18 @@ body {
     z-index: 2; }
   @media screen and (max-width: 980px) {
     #heading {
-      padding: 2rem; } }
+      padding: 2rem 0 0 0; } }
 
 /* Main */
 #main .content {
   background: #ffffff;
   border-radius: 4px;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.025);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
   margin-bottom: 0rem;
   padding: 3rem; }
   #main .foot {
-    background: #e8a87c;
+    background: transparent;
+
   }
   @media screen and (max-width: 980px) {
     #main .content {
@@ -3050,6 +3057,7 @@ ol.valori {
 ol.valori > li > i {
   font-weight: bold;
   color: #e27d60;
+  font-family: monospace;
 }
 ul.alt > li > a {
   color: #444444;
@@ -3072,4 +3080,98 @@ u {
 }
 ul.service {
   text-align: left;
+}
+
+#no-freeze-spinner {
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.1s linear;
+  opacity: 0;
+  min-height: 10em;
+  max-height: 20em;
+  transform: scale(10);
+  z-index: -1;
+  background: $dark;
+}
+.no-freeze-spinner #no-freeze-spinner {
+  z-index: 9999;
+  opacity: 0.8;
+  transform: scale(1);
+}
+#no-freeze-spinner > div > div {
+  animation-play-state: paused;
+  border: 5px solid rgba(200, 200, 200, 1);
+  border-radius: 50%;
+  animation: rotate 1s infinite linear;
+  border-left-color: rgba(200, 200, 200, 0.4);
+  width: 100%;
+  height: 100%;
+}
+#no-freeze-spinner > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+}
+.no-freeze-spinner #no-freeze-spinner div div {
+  animation-play-state: running;
+}
+@keyframes loadicons {
+  0% {
+    transform: scale(0) translate3d(0, 0, 0);
+  }
+  11% {
+    transform: scale(1.2) translate3d(0, 0, 0);
+  }
+  22% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  33% {
+    transform: scale(0) translate3d(0, 0, 0);
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.no-freeze-spinner #no-freeze-spinner i {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.5;
+  color: black;
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+  transform: scale(0) translate3d(0, 0, 0);
+}
+.no-freeze-spinner #no-freeze-spinner i:nth-of-type(1) {
+  animation: loadicons 3s infinite ease-in-out;
+}
+.no-freeze-spinner #no-freeze-spinner i:nth-of-type(2) {
+  animation: loadicons 3s 1s infinite ease-in-out;
+}
+.no-freeze-spinner #no-freeze-spinner i:nth-of-type(3) {
+  animation: loadicons 3s 2s infinite ease-in-out;
+}
+
+.title {
+  color: #05386B;
+  font-weight: 700;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 0.5px 0 #05386B;
+  letter-spacing: 0.5px;
 }

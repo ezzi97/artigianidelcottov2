@@ -7,7 +7,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
-		<link rel="stylesheet" href="/assets/css/twentytwenty.css" type="text/css" media="screen" />
+		<link type="text/css" href="/assets/css/beforeafter.css" rel="stylesheet">
 		<link rel="stylesheet" href="/assets/css/floating-wpp.css">
 	</head>
 	<body class="is-preload">
@@ -75,41 +75,53 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div id="img1" class="images">
+									<div class="ba-slider">
 										 <!-- The before image is first -->
 										 <img src="/images/before_after/before_01.jpeg" alt="" />
 										 <!-- The after image is last -->
-										 <img src="/images/before_after/after_01.jpeg" alt="" />
+										 <div class="resize">
+											 <img src="/images/before_after/after_01.jpeg" alt="" />
+										 </div>
+										 <span class="handle"></span>
 									</div>
 								</span>
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div id="img2" class="images">
+									<div class="ba-slider">
 										 <!-- The before image is first -->
 										 <img src="/images/before_after/before_02.jpeg" alt="" />
 										 <!-- The after image is last -->
-										 <img src="/images/before_after/after_02.jpeg" alt="" />
+										 <div class="resize">
+											 <img src="/images/before_after/after_02.jpeg" alt="" />
+										 </div>
+										 <span class="handle"></span>
 									</div>
 								</span>
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div id="img3" class="images">
+									<div class="ba-slider">
 										 <!-- The before image is first -->
 										 <img src="/images/before_after/before_03.jpeg" alt="" />
 										 <!-- The after image is last -->
-										 <img src="/images/before_after/after_03.jpeg" alt="" />
+										 <div class="resize">
+											 <img src="/images/before_after/after_03.jpeg" alt="" />
+										 </div>
+										 <span class="handle"></span>
 									</div>
 								</span>
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div id="img4" class="images">
+									<div class="ba-slider">
 										 <!-- The before image is first -->
 										 <img src="/images/before_after/before_04.jpeg" alt="" />
 										 <!-- The after image is last -->
-										 <img src="/images/before_after/after_04.jpeg" alt="" />
+										 <div class="resize">
+											 <img src="/images/before_after/after_04.jpeg" alt="" />
+										 </div>
+										 <span class="handle"></span>
 									</div>
 								</span>
 							</div>
@@ -153,14 +165,15 @@
 		</div>
 		<!-- Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>
-			<script src="/assets/js/jquery.event.move.js" type="text/javascript"></script>
-			<script src="/assets/js/jquery.twentytwenty.js" type="text/javascript"></script>
+			<script src="/assets/js/beforeafter.js" type="text/javascript"></script>
 			<script src="/assets/js/browser.min.js"></script>
 			<script src="/assets/js/breakpoints.min.js"></script>
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
 			<script type="text/javascript" src="/assets/js/floating-wpp.min.js"></script>
-			
+			<script>
+				$('.ba-slider').beforeAfter();
+			</script>
 			<script type="text/javascript">
 			  $(function () {
 			    $('#myButton').floatingWhatsApp({

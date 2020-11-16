@@ -1,151 +1,329 @@
-(function($){
-
-  $.fn.twentytwenty = function(options) {
-    var options = $.extend({
-      default_offset_pct: 0.5,
-      orientation: 'horizontal',
-      before_label: 'Prima',
-      after_label: 'Dopo',
-      no_overlay: false,
-      move_slider_on_hover: false,
-      move_with_handle_only: true,
-      click_to_move: false
-    }, options);
-
+! function(t) {
+  t.fn.twentytwenty = function(e) {
+    var e = t.extend({
+      default_offset_pct: .5,
+      orientation: "horizontal"
+    }, e);
     return this.each(function() {
-
-      var sliderPct = options.default_offset_pct;
-      var container = $(this);
-      var sliderOrientation = options.orientation;
-      var beforeDirection = (sliderOrientation === 'vertical') ? 'down' : 'left';
-      var afterDirection = (sliderOrientation === 'vertical') ? 'up' : 'right';
-
-
-      container.wrap("<div class='twentytwenty-wrapper twentytwenty-" + sliderOrientation + "'></div>");
-      if(!options.no_overlay) {
-        container.append("<div class='twentytwenty-overlay'></div>");
-        var overlay = container.find(".twentytwenty-overlay");
-        overlay.append("<div class='twentytwenty-before-label' data-content='"+options.before_label+"'></div>");
-        overlay.append("<div class='twentytwenty-after-label' data-content='"+options.after_label+"'></div>");
-      }
-      var beforeImg = container.find("img:first");
-      var afterImg = container.find("img:last");
-      container.append("<div class='twentytwenty-handle'></div>");
-      var slider = container.find(".twentytwenty-handle");
-      slider.append("<span class='twentytwenty-" + beforeDirection + "-arrow'></span>");
-      slider.append("<span class='twentytwenty-" + afterDirection + "-arrow'></span>");
-      container.addClass("twentytwenty-container");
-      beforeImg.addClass("twentytwenty-before");
-      afterImg.addClass("twentytwenty-after");
-
-      var calcOffset = function(dimensionPct) {
-        var w = beforeImg.width();
-        var h = beforeImg.height();
-        return {
-          w: w+"px",
-          h: h+"px",
-          cw: (dimensionPct*w)+"px",
-          ch: (dimensionPct*h)+"px"
+      var n = e.default_offset_pct,
+        i = t(this),
+        a = e.orientation,
+        s = "vertical" === a ? "down" : "left",
+        d = "vertical" === a ? "up" : "right";
+      i.wrap("<div class='twentytwenty-wrapper twentytwenty-" + a + "'></div>"), i.append("<div class='twentytwenty-overlay'></div>");
+      var r = i.find("img:first"),
+        w = i.find("img:last");
+      i.append("<div class='twentytwenty-handle'></div>");
+      var c = i.find(".twentytwenty-handle");
+      c.append("<span class='twentytwenty-" + s + "-arrow'></span>"), c.append("<span class='twentytwenty-" + d + "-arrow'></span>"), i.addClass("twentytwenty-container"), r.addClass("twentytwenty-before"), w.addClass("twentytwenty-after");
+      var o = i.find(".twentytwenty-overlay");
+      o.append("<div class='twentytwenty-before-label'></div>"), o.append("<div class='twentytwenty-after-label'></div>");
+      var f = function(t) {
+          var e = r.width(),
+            n = r.height();
+          return {
+            w: e + "px",
+            h: n + "px",
+            cw: t * e + "px",
+            ch: t * n + "px"
+          }
+        },
+        l = function(t) {
+          "vertical" === a ? r.css("clip", "rect(0," + t.w + "," + t.ch + ",0)") : r.css("clip", "rect(0," + t.cw + "," + t.h + ",0)"), i.css("height", t.h)
+        },
+        v = function(t) {
+          var e = f(t);
+          c.css("vertical" === a ? "top" : "left", "vertical" === a ? e.ch : e.cw), l(e)
         };
-      };
-
-      var adjustContainer = function(offset) {
-      	if (sliderOrientation === 'vertical') {
-          beforeImg.css("clip", "rect(0,"+offset.w+","+offset.ch+",0)");
-          afterImg.css("clip", "rect("+offset.ch+","+offset.w+","+offset.h+",0)");
-      	}
-      	else {
-          beforeImg.css("clip", "rect(0,"+offset.cw+","+offset.h+",0)");
-          afterImg.css("clip", "rect(0,"+offset.w+","+offset.h+","+offset.cw+")");
-    	}
-        container.css("height", offset.h);
-      };
-
-      var adjustSlider = function(pct) {
-        var offset = calcOffset(pct);
-        slider.css((sliderOrientation==="vertical") ? "top" : "left", (sliderOrientation==="vertical") ? offset.ch : offset.cw);
-        adjustContainer(offset);
-      };
-
-      // Return the number specified or the min/max number if it outside the range given.
-      var minMaxNumber = function(num, min, max) {
-        return Math.max(min, Math.min(max, num));
-      };
-
-      // Calculate the slider percentage based on the position.
-      var getSliderPercentage = function(positionX, positionY) {
-        var sliderPercentage = (sliderOrientation === 'vertical') ?
-          (positionY-offsetY)/imgHeight :
-          (positionX-offsetX)/imgWidth;
-
-        return minMaxNumber(sliderPercentage, 0, 1);
-      };
-
-
-      $(window).on("resize.twentytwenty", function(e) {
-        adjustSlider(sliderPct);
+      t(window).on("resize.twentytwenty", function() {
+        v(n)
       });
+      var p = 0,
+        y = 0;
+      c.on("movestart", function(t) {
+        (t.distX > t.distY && t.distX < -t.distY || t.distX < t.distY && t.distX > -t.distY) && "vertical" !== a ? t.preventDefault() : (t.distX < t.distY && t.distX < -t.distY || t.distX > t.distY && t.distX > -t.distY) && "vertical" === a && t.preventDefault(), i.addClass("active"), p = i.offset().left, offsetY = i.offset().top, y = r.width(), imgHeight = r.height()
+      }), c.on("moveend", function() {
+        i.removeClass("active")
+      }), c.on("move", function(t) {
+        i.hasClass("active") && (n = "vertical" === a ? (t.pageY - offsetY) / imgHeight : (t.pageX - p) / y, 0 > n && (n = 0), n > 1 && (n = 1), v(n))
+      }), i.find("img").on("mousedown", function(t) {
+        t.preventDefault()
+      }), t(window).trigger("resize.twentytwenty")
+    })
+  }
+}(jQuery);
 
-      var offsetX = 0;
-      var offsetY = 0;
-      var imgWidth = 0;
-      var imgHeight = 0;
-      var onMoveStart = function(e) {
-        if (((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) && sliderOrientation !== 'vertical') {
-          e.preventDefault();
-        }
-        else if (((e.distX < e.distY && e.distX < -e.distY) || (e.distX > e.distY && e.distX > -e.distY)) && sliderOrientation === 'vertical') {
-          e.preventDefault();
-        }
-        container.addClass("active");
-        offsetX = container.offset().left;
-        offsetY = container.offset().top;
-        imgWidth = beforeImg.width();
-        imgHeight = beforeImg.height();
-      };
-      var onMove = function(e) {
-        if (container.hasClass("active")) {
-          sliderPct = getSliderPercentage(e.pageX, e.pageY);
-          adjustSlider(sliderPct);
-        }
-      };
-      var onMoveEnd = function() {
-          container.removeClass("active");
-      };
+! function(t) {
+  "function" == typeof define && define.amd ? define(["jquery"], t) : t(jQuery)
+}(function(t, e) {
+  function n(t) {
+    function e() {
+      a ? (n(), O(e), i = !0, a = !1) : i = !1
+    }
+    var n = t,
+      a = !1,
+      i = !1;
+    this.kick = function() {
+      a = !0, i || e()
+    }, this.end = function(t) {
+      var e = n;
+      t && (i ? (n = a ? function() {
+        e(), t()
+      } : t, a = !0) : t())
+    }
+  }
 
-      var moveTarget = options.move_with_handle_only ? slider : container;
-      moveTarget.on("movestart",onMoveStart);
-      moveTarget.on("move",onMove);
-      moveTarget.on("moveend",onMoveEnd);
+  function a() {
+    return !0
+  }
 
-      if (options.move_slider_on_hover) {
-        container.on("mouseenter", onMoveStart);
-        container.on("mousemove", onMove);
-        container.on("mouseleave", onMoveEnd);
+  function i() {
+    return !1
+  }
+
+  function o(t) {
+    t.preventDefault()
+  }
+
+  function r(t) {
+    z[t.target.tagName.toLowerCase()] || t.preventDefault()
+  }
+
+  function u(t) {
+    return 1 === t.which && !t.ctrlKey && !t.altKey
+  }
+
+  function c(t, e) {
+    var n, a;
+    if (t.identifiedTouch) return t.identifiedTouch(e);
+    for (n = -1, a = t.length; ++n < a;)
+      if (t[n].identifier === e) return t[n]
+  }
+
+  function d(t, e) {
+    var n = c(t.changedTouches, e.identifier);
+    if (n && (n.pageX !== e.pageX || n.pageY !== e.pageY)) return n
+  }
+
+  function m(t) {
+    var e;
+    u(t) && (e = {
+      target: t.target,
+      startX: t.pageX,
+      startY: t.pageY,
+      timeStamp: t.timeStamp
+    }, K(document, Q.move, f, e), K(document, Q.cancel, s, e))
+  }
+
+  function f(t) {
+    var e = t.data;
+    X(t, e, t, v)
+  }
+
+  function s() {
+    v()
+  }
+
+  function v() {
+    L(document, Q.move, f), L(document, Q.cancel, s)
+  }
+
+  function p(t) {
+    var e, n;
+    z[t.target.tagName.toLowerCase()] || (e = t.changedTouches[0], n = {
+      target: e.target,
+      startX: e.pageX,
+      startY: e.pageY,
+      timeStamp: t.timeStamp,
+      identifier: e.identifier
+    }, K(document, B.move + "." + e.identifier, g, n), K(document, B.cancel + "." + e.identifier, h, n))
+  }
+
+  function g(t) {
+    var e = t.data,
+      n = d(t, e);
+    n && X(t, e, n, l)
+  }
+
+  function h(t) {
+    var e = t.data,
+      n = c(t.changedTouches, e.identifier);
+    n && l(e.identifier)
+  }
+
+  function l(t) {
+    L(document, "." + t, g), L(document, "." + t, h)
+  }
+
+  function X(t, e, n, a) {
+    var i = n.pageX - e.startX,
+      o = n.pageY - e.startY;
+    C * C > i * i + o * o || y(t, e, n, i, o, a)
+  }
+
+  function Y() {
+    return this._handled = a, !1
+  }
+
+  function w(t) {
+    t._handled()
+  }
+
+  function y(t, e, n, a, i, o) {
+    {
+      var r, u;
+      e.target
+    }
+    r = t.targetTouches, u = t.timeStamp - e.timeStamp, e.type = "movestart", e.distX = a, e.distY = i, e.deltaX = a, e.deltaY = i, e.pageX = n.pageX, e.pageY = n.pageY, e.velocityX = a / u, e.velocityY = i / u, e.targetTouches = r, e.finger = r ? r.length : 1, e._handled = Y, e._preventTouchmoveDefault = function() {
+      t.preventDefault()
+    }, N(e.target, e), o(e.identifier)
+  }
+
+  function T(t) {
+    var e = t.data.timer;
+    t.data.touch = t, t.data.timeStamp = t.timeStamp, e.kick()
+  }
+
+  function S(t) {
+    var e = t.data.event,
+      n = t.data.timer;
+    k(), F(e, n, function() {
+      setTimeout(function() {
+        L(e.target, "click", i)
+      }, 0)
+    })
+  }
+
+  function k() {
+    L(document, Q.move, T), L(document, Q.end, S)
+  }
+
+  function _(t) {
+    var e = t.data.event,
+      n = t.data.timer,
+      a = d(t, e);
+    a && (t.preventDefault(), e.targetTouches = t.targetTouches, t.data.touch = a, t.data.timeStamp = t.timeStamp, n.kick())
+  }
+
+  function q(t) {
+    var e = t.data.event,
+      n = t.data.timer,
+      a = c(t.changedTouches, e.identifier);
+    a && (A(e), F(e, n))
+  }
+
+  function A(t) {
+    L(document, "." + t.identifier, _), L(document, "." + t.identifier, q)
+  }
+
+  function D(t, e, n) {
+    var a = n - t.timeStamp;
+    t.type = "move", t.distX = e.pageX - t.startX, t.distY = e.pageY - t.startY, t.deltaX = e.pageX - t.pageX, t.deltaY = e.pageY - t.pageY, t.velocityX = .3 * t.velocityX + .7 * t.deltaX / a, t.velocityY = .3 * t.velocityY + .7 * t.deltaY / a, t.pageX = e.pageX, t.pageY = e.pageY
+  }
+
+  function F(t, e, n) {
+    e.end(function() {
+      return t.type = "moveend", N(t.target, t), n && n()
+    })
+  }
+
+  function R() {
+    return K(this, "movestart.move", w), !0
+  }
+
+  function x() {
+    return L(this, "dragstart drag", o), L(this, "mousedown touchstart", r), L(this, "movestart", w), !0
+  }
+
+  function b(t) {
+    "move" !== t.namespace && "moveend" !== t.namespace && (K(this, "dragstart." + t.guid + " drag." + t.guid, o, e, t.selector), K(this, "mousedown." + t.guid, r, e, t.selector))
+  }
+
+  function j(t) {
+    "move" !== t.namespace && "moveend" !== t.namespace && (L(this, "dragstart." + t.guid + " drag." + t.guid), L(this, "mousedown." + t.guid))
+  }
+  var C = 6,
+    K = t.event.add,
+    L = t.event.remove,
+    N = function(e, n, a) {
+      t.event.trigger(n, a, e)
+    },
+    O = function() {
+      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(t) {
+        return window.setTimeout(function() {
+          t()
+        }, 25)
       }
-
-      slider.on("touchmove", function(e) {
-        e.preventDefault();
-      });
-
-      container.find("img").on("mousedown", function(event) {
-        event.preventDefault();
-      });
-
-      if (options.click_to_move) {
-        container.on('click', function(e) {
-          offsetX = container.offset().left;
-          offsetY = container.offset().top;
-          imgWidth = beforeImg.width();
-          imgHeight = beforeImg.height();
-
-          sliderPct = getSliderPercentage(e.pageX, e.pageY);
-          adjustSlider(sliderPct);
-        });
+    }(),
+    z = {
+      textarea: !0,
+      input: !0,
+      select: !0,
+      button: !0
+    },
+    Q = {
+      move: "mousemove",
+      cancel: "mouseup dragstart",
+      end: "mouseup"
+    },
+    B = {
+      move: "touchmove",
+      cancel: "touchend",
+      end: "touchend"
+    };
+  t.event.special.movestart = {
+    setup: R,
+    teardown: x,
+    add: b,
+    remove: j,
+    _default: function(t) {
+      function a() {
+        D(o, r.touch, r.timeStamp), N(t.target, o)
       }
+      var o, r;
+      t._handled() && (o = {
+        target: t.target,
+        startX: t.startX,
+        startY: t.startY,
+        pageX: t.pageX,
+        pageY: t.pageY,
+        distX: t.distX,
+        distY: t.distY,
+        deltaX: t.deltaX,
+        deltaY: t.deltaY,
+        velocityX: t.velocityX,
+        velocityY: t.velocityY,
+        timeStamp: t.timeStamp,
+        identifier: t.identifier,
+        targetTouches: t.targetTouches,
+        finger: t.finger
+      }, r = {
+        event: o,
+        timer: new n(a),
+        touch: e,
+        timeStamp: e
+      }, t.identifier === e ? (K(t.target, "click", i), K(document, Q.move, T, r), K(document, Q.end, S, r)) : (t._preventTouchmoveDefault(), K(document, B.move + "." + t.identifier, _, r), K(document, B.end + "." + t.identifier, q, r)))
+    }
+  }, t.event.special.move = {
+    setup: function() {
+      K(this, "movestart.move", t.noop)
+    },
+    teardown: function() {
+      L(this, "movestart.move", t.noop)
+    }
+  }, t.event.special.moveend = {
+    setup: function() {
+      K(this, "movestart.moveend", t.noop)
+    },
+    teardown: function() {
+      L(this, "movestart.moveend", t.noop)
+    }
+  }, K(document, "mousedown.move", m), K(document, "touchstart.move", p), "function" == typeof Array.prototype.indexOf && ! function(t) {
+    for (var e = ["changedTouches", "targetTouches"], n = e.length; n--;) - 1 === t.event.props.indexOf(e[n]) && t.event.props.push(e[n])
+  }(t)
+});
 
-      $(window).trigger("resize.twentytwenty");
-    });
-  };
-
-})(jQuery);
+$(window).load(function() {
+  $("#caricamento").hide();
+  $(".images").twentytwenty();
+});

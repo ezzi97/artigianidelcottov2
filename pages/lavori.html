@@ -75,7 +75,7 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div class="twentytwenty-container">
+									<div id="img1" class="twentytwenty-container">
 										 <!-- The before image is first -->
 										 <img src="/images/before_after/before_01.jpeg" alt="" />
 										 <!-- The after image is last -->
@@ -85,7 +85,7 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div class="twentytwenty-container">
+									<div id="img2" class="twentytwenty-container">
 										 <!-- The before image is first -->
 										 <img src="/images/before_after/before_02.jpeg" alt="" />
 										 <!-- The after image is last -->
@@ -95,7 +95,7 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div class="twentytwenty-container">
+									<div id="img3" class="twentytwenty-container">
 										 <!-- The before image is first -->
 										 <img src="/images/before_after/before_03.jpeg" alt="" />
 										 <!-- The after image is last -->
@@ -105,7 +105,7 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div class="twentytwenty-container">
+									<div id="img4" class="twentytwenty-container">
 										 <!-- The before image is first -->
 										 <img src="/images/before_after/before_04.jpeg" alt="" />
 										 <!-- The after image is last -->
@@ -163,8 +163,10 @@
 			<script>
 			$(window).on('load', function() {
 				$("#caricamento").hide();
-				$(".twentytwenty-container").twentytwenty();
-				$(window).trigger("resize.twentytwenty-container");
+				$("#img1").twentytwenty();
+				$("#img2").twentytwenty();
+				$("#img3").twentytwenty();
+				$("#img4").twentytwenty();
 			});
 			</script>
 

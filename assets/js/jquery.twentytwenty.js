@@ -39,8 +39,8 @@
       afterImg.addClass("twentytwenty-after");
 
       var calcOffset = function(dimensionPct) {
-        var w = beforeImg.width();
-        var h = beforeImg.height();
+        var w = beforeImg.actual("width");
+        var h = beforeImg.actual("height");
         return {
           w: w+"px",
           h: h+"px",

@@ -1,6 +1,7 @@
 .ba-slider {
     position: relative;
     overflow: hidden;
+    max-height: 30em;
 }
 
 .ba-slider img {
@@ -27,7 +28,7 @@
   width:4px;
   margin-left:-2px;
 
-  background: rgba(0,0,0,.5);
+  background: rgba(255,255,255,0.8);
   cursor: ew-resize;
 }
 
@@ -45,8 +46,8 @@
     text-align:center;
     line-height:64px;
 
-    background: #ffb800; /* @orange */
-    border:1px solid #e6a600; /* darken(@orange, 5%) */
+    background: #F0AAAA; /* @orange */
+    border:1px solid #F0AAAA; /* darken(@orange, 5%) */
     border-radius: 50%;
     transition:all 0.3s ease;
     box-shadow:

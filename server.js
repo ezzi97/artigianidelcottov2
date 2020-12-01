@@ -1,4 +1,5 @@
 const express = require('express');
+var bodyParser = require('body-parser');
 const Mailer = require(__dirname + '/classes/Mailer.js');
 const mailSender = new Mailer();
 var app = express();
@@ -16,6 +17,8 @@ app.use('/images', express.static(__dirname + '/images'));
 app.use('/images/before_after', express.static(__dirname + '/images/before_after'));
 app.use('/pages', express.static(__dirname + '/pages'));
 app.use('/classes', express.static(__dirname + '/classes'));
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 const pagine = __dirname + "/pages/";
 const mainDir = __dirname + "/";
 
@@ -33,10 +36,7 @@ app.get('/chi_siamo(.html)?', function (req, res) {
 });
 
 app.post('/manda_email', function(req, res) {
-  //qualcosa
-  console.log(req.body);
-  var params = "";
-  mailSender.sendEmail(params, function() {
+  mailSender.sendEmail(req.body, function() {
     res.status(200).json({statusCode: 200, message: "Email inviata con successo"});
   });
 });

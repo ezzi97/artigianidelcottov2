@@ -8,6 +8,7 @@
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
 		<link rel="stylesheet" href="/assets/css/floating-wpp.css">
+		<link rel="stylesheet" href="/assets/css/aos.css" />
 	</head>
 	<body class="is-preload">
 	<div id="main">
@@ -50,46 +51,62 @@
 						<div class="row">
 							<div class="col-6 col-12-medium">
 								<!-- Lists -->
-									<h3 class="title">Contattaci</h3>
-									<ul class="alt">
-										<li><a href="tel:+393397517813" class="icon fa-phone"> +39 339 751 7813</a></li>
-										<li><a href="mailto: antonio.poletto@artigianidelcotto.it" class="icon fa-envelope"> antonio.poletto@artigianidelcotto.it</a></li>
-										<li><a href="mailto: luca.poletto@artigianidelcotto.it" class="icon fa-envelope"> luca.poletto@artigianidelcotto.it</a></li>
-										<li><p class="icon fa-map-marker"> Via piave, 7b, 25030, Torbole Casaglia (BS).</p></li>
+									<h3 class="title"  data-aos="fade-right">Contattaci</h3>
+									<ul class="alt" >
+										<li data-aos="fade-right"><a href="tel:+393397517813" class="icon fa-phone" > +39 339 751 7813</a></li>
+										<li data-aos="fade-right"><a href="mailto: antonio.poletto@artigianidelcotto.it" class="icon fa-envelope"> antonio.poletto@artigianidelcotto.it</a></li>
+										<li data-aos="fade-right"><a href="mailto: luca.poletto@artigianidelcotto.it" class="icon fa-envelope"> luca.poletto@artigianidelcotto.it</a></li>
+										<li data-aos="fade-right"><a target="_blank" href="https://www.google.com/maps/place/Via+Piave,+7,+25030+Torbole+Casaglia+BS/@45.5039299,10.0995313,17z/data=!3m1!4b1!4m5!3m4!1s0x478173afe3038cad:0x1bf91022cea10af4!8m2!3d45.5039299!4d10.10172" class="icon fa-map-marker"> Via piave, 7b, 25030, Torbole Casaglia (BS).</a></li>
 									</ul>
 							</div>
 							<div class="col-6 col-12-medium">
 								<!-- Form -->
-									<h3 class="title">Form</h3>
-									<form method="post" action="/manda_email">
+									<h3 class="title" data-aos="fade-right">Form</h3>
+									<form method="post" action="/manda_email" id="contact_us_form">
 										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall">
+											<div class="col-6 col-12-xsmall" data-aos="fade-right">
 												<input type="text" name="name" id="name" value="" placeholder="Nome" />
 											</div>
-											<div class="col-6 col-12-xsmall">
+											<div class="col-6 col-12-xsmall" data-aos="fade-right">
 												<input type="email" name="email" id="email" value="" placeholder="Email" />
 											</div>
 											<!-- Break -->
-											<div class="col-12">
-												<select name="category" id="category">
+											<div class="col-12 col-12-xsmall" data-aos="fade-right">
+												<select name="subject" id="subject">
 													<option value="">- Oggetto -</option>
 													<option value="preventivo">Richiesta preventivo</option>
 													<option value="informazioni">Informazioni generali</option>
 												</select>
 											</div>
 											<!-- Break -->
-											<div class="col-12">
-												<textarea name="textarea" id="textarea" placeholder="Messaggio" rows="6"></textarea>
+											<div class="col-12 col-12-xsmall" data-aos="fade-right">
+												<textarea name="message" id="message" placeholder="Messaggio" rows="6"></textarea>
 											</div>
 											<!-- Break -->
-											<div class="col-12">
+											<div class="col-12 col-12-xsmall" data-aos="fade-right">
+												<div class="no-freeze-spinner" style="display: none;" id="caricamentoSubmit">
+													<div id="no-freeze-spinner">
+														<div>
+															<i class="material-icons">
+															 email
+															</i>
+															<i class="material-icons">
+																mark_email_unread
+															</i>
+															<i class="material-icons">
+																forward_to_inbox
+															</i>
+															<div>
+															</div>
+														</div>
+													</div>
+												</div>
 												<ul class="actions">
-													<li><a href="#" class="button primary icon fa-send"><input type="submit" value="Submit Form" class="primary" /></a></li>
+													<li id="submitButton"><a href="#" class="button primary icon fa-send"><input type="submit" value="Submit Form" class="primary" /></a></li>
 												</ul>
 											</div>
 										</div>
 									</form>
-
 							</div>
 						</div>
 					</div>
@@ -135,8 +152,9 @@
 			<script src="/assets/js/breakpoints.min.js"></script>
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
+			<script src="/assets/js/jquery.validate.min.js"></script>
+			<script src="/assets/js/form.validation.js"></script>
 			<script type="text/javascript" src="/assets/js/floating-wpp.min.js"></script>
-
 			<script type="text/javascript">
 			  $(function () {
 			    $('#myButton').floatingWhatsApp({
@@ -149,5 +167,7 @@
 			    });
 			  });
 			</script>
+			<script src="/assets/js/aos.js"></script>
+			<script src="/assets/js/aos_init.js"></script>
 	</body>
 </html>

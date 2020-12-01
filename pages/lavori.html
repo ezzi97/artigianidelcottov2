@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="/assets/css/main.css" />
 		<link type="text/css" href="/assets/css/beforeafter.css" rel="stylesheet">
 		<link rel="stylesheet" href="/assets/css/floating-wpp.css">
+		<link rel="stylesheet" href="/assets/css/aos.css" />
 	</head>
 	<body class="is-preload">
 	<div id="main">
@@ -75,12 +76,12 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div class="ba-slider">
+									<div class="ba-slider image1" data-aos="zoom-in-up">
 										 <!-- The before image is first -->
-										 <img src="/images/before_after/before_01.jpeg" alt="" />
+										 <img src="/images/before_after/after_01.jpeg" alt="" />
 										 <!-- The after image is last -->
 										 <div class="resize">
-											 <img src="/images/before_after/after_01.jpeg" alt="" />
+											 <img src="/images/before_after/before_01.jpeg" alt="" />
 										 </div>
 										 <span class="handle"></span>
 									</div>
@@ -88,12 +89,12 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div class="ba-slider">
+									<div class="ba-slider image2" data-aos="zoom-in-up">
 										 <!-- The before image is first -->
-										 <img src="/images/before_after/before_02.jpeg" alt="" />
+										 <img src="/images/before_after/after_02.jpeg" alt="" />
 										 <!-- The after image is last -->
 										 <div class="resize">
-											 <img src="/images/before_after/after_02.jpeg" alt="" />
+											 <img src="/images/before_after/before_02.jpeg" alt="" />
 										 </div>
 										 <span class="handle"></span>
 									</div>
@@ -101,12 +102,12 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div class="ba-slider">
+									<div class="ba-slider image3" data-aos="zoom-in-up">
 										 <!-- The before image is first -->
-										 <img src="/images/before_after/before_03.jpeg" alt="" />
+										 <img src="/images/before_after/after_03.jpeg" alt="" />
 										 <!-- The after image is last -->
 										 <div class="resize">
-											 <img src="/images/before_after/after_03.jpeg" alt="" />
+											 <img src="/images/before_after/before_03.jpeg" alt="" />
 										 </div>
 										 <span class="handle"></span>
 									</div>
@@ -114,12 +115,12 @@
 							</div>
 							<div class="col-6 col-6-medium col-12-small">
 								<span class="image fit">
-									<div class="ba-slider">
+									<div class="ba-slider image4" data-aos="zoom-in-up">
 										 <!-- The before image is first -->
-										 <img src="/images/before_after/before_04.jpeg" alt="" />
+										 <img src="/images/before_after/after_04.jpeg" alt="" />
 										 <!-- The after image is last -->
 										 <div class="resize">
-											 <img src="/images/before_after/after_04.jpeg" alt="" />
+											 <img src="/images/before_after/before_04.jpeg" alt="" />
 										 </div>
 										 <span class="handle"></span>
 									</div>
@@ -172,7 +173,15 @@
 			<script src="/assets/js/main.js"></script>
 			<script type="text/javascript" src="/assets/js/floating-wpp.min.js"></script>
 			<script>
-				$('.ba-slider').beforeAfter();
+			$(".ba-slider").hide();
+				$(window).on('load', function () {
+					$('.image1').beforeAfter();
+					$('.image2').beforeAfter();
+					$('.image3').beforeAfter();
+					$('.image4').beforeAfter();
+					$(".ba-slider").slideDown();
+					$("#caricamento").hide();
+				});
 			</script>
 			<script type="text/javascript">
 			  $(function () {
@@ -186,5 +195,7 @@
 			    });
 			  });
 			</script>
+			<script src="/assets/js/aos.js"></script>
+			<script src="/assets/js/aos_init.js"></script>
 	</body>
 </html>

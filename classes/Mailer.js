@@ -14,12 +14,11 @@ class Mailer {
     }
     sendEmail(params, callback) {
       this.mailOpts = {
-          from: '', // This is ignored by Gmail
-          to: '',
-          subject: '',
-          //text: `${req.body.name} (${req.body.email}) dice: ${req.body.message}`
-        }
-      // Attempt to send the email
+        from: ''+params.email, // This is ignored by Gmail
+        to: 'ezeddin.eddaouy@gmail.com',
+        subject: ''+params.oggetto,
+        text: `Il signor ${params.name} (con email: ${params.email}) chiede: ${params.message}`
+      }
       this.smtpTrans.sendMail(this.mailOpts, (error, response) => {
           if (error) {
             callback({error: error, statusCode: 403});

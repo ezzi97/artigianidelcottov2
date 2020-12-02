@@ -4,18 +4,16 @@ const ejs = require("ejs");
 
 class Mailer {
     constructor(){
-      this.administrator = "trucesdin@gmail.com";
       this.smtpTrans = nodemailer.createTransport({
           service: 'gmail',
           auth: {
-            user: ""+this.administrator,
-            pass: "Ezeddin@97@"
+            user: ""+process.env.GMAIL_USER,
+            pass: ""+process.env.GMAIL_PASS
           }
       });
     }
     sendEmail(params, callback) {
       var parametri = params;
-      var amministratore = this.administrator;
       var smtpSender = this.smtpTrans;
       this.sendToAdminEmail(params, function(ris) {
         if (ris.statusCode === 200) {
@@ -24,7 +22,7 @@ class Mailer {
               console.log(err);
               callback({error: err, statusCode: 403});
             } else {
-                smtpSender.sendMail({from: ''+amministratore, to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
+                smtpSender.sendMail({from: ''+process.env.GMAIL_USER, to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
                     if (error) {
                       callback({error: error, statusCode: 403});
                       return;
@@ -45,7 +43,7 @@ class Mailer {
     sendToAdminEmail(params, callback) {
       this.mailOpts = {
         from: ''+params.email, // This is ignored by Gmail
-        to: ''+this.administrator,
+        to: ''+process.env.GMAIL_USER,
         subject: ''+params.oggetto,
         text: `Il signor ${params.name} (con email: ${params.email}) chiede: ${params.message}`
       }

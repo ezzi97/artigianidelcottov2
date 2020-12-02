@@ -24,7 +24,7 @@ class Mailer {
               console.log(err);
               callback({error: err, statusCode: 403});
             } else {
-                smtpSender.sendMail({from: ''+process.env.GMAIL_USER, to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
+                smtpSender.sendMail({from: 'No-Reply - Artigiani del cotto', to: ""+parametri.email, subject: 'Grazie per averci contattato', html: data}, (error, response) => {
                     if (error) {
                       callback({error: error, statusCode: 403});
                       return;

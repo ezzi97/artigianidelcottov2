@@ -4,17 +4,14 @@ const ejs = require("ejs");
 
 class Mailer {
     constructor(){
-      this.smtpTrans = nodemailer.createTransport({
+      this.smtpTrans = nodemailer.createTransport(smtpTransport({
           host: "smtp.gmail.com",
-          port: 587,
+          service: "smail",
           auth: {
             user: ""+process.env.GMAIL_USER,
             pass: ""+process.env.GMAIL_PASS
-          },
-          tls: {
-            rejectUnauthorized: false
           }
-      });
+      }));
     }
     sendEmail(params, callback) {
       var parametri = params;

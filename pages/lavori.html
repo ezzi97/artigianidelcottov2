@@ -75,7 +75,7 @@
 								</div>
 							</div>
 							<div class="col-4 col-6-medium col-12-small">
-									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo" id="slider1">
+									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo">
 										<img src="/images/before_after/after_01.jpeg" alt="" />
 										 <div class="beer-reveal" data-beer-label="prima">
 											 <img src="/images/before_after/before_01.jpeg" alt="" />
@@ -83,7 +83,7 @@
 									</div>
 							</div>
 							<div class="col-4 col-6-medium col-12-small">
-									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo" id="slider2">
+									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo">
 										<img src="/images/before_after/after_02.jpeg" alt="" />
 										<div class="beer-reveal" data-beer-label="prima">
 											<img src="/images/before_after/before_02.jpeg" alt="" />
@@ -91,7 +91,7 @@
 									</div>
 							</div>
 							<div class="col-4 col-6-medium col-12-small">
-									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo" id="slider3">
+									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo">
 										 <img src="/images/before_after/after_03.jpeg" alt="" />
 										 <div class="beer-reveal" data-beer-label="prima">
 											<img src="/images/before_after/before_03.jpeg" alt="" />
@@ -99,7 +99,7 @@
 									</div>
 							</div>
 							<div class="col-4 col-6-medium col-12-small">
-									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo" id="slider4">
+									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo">
 										<img src="/images/before_after/after_04.jpeg" alt="" />
 										<div class="beer-reveal" data-beer-label="prima">
 											<img src="/images/before_after/before_04.jpeg" alt="" />
@@ -153,13 +153,16 @@
 			<script src="/assets/js/main.js"></script>
 			<script type="text/javascript" src="/assets/js/floating-wpp.min.js"></script>
 			<script>
-
+			$.fn.BeerSlider = function ( options ) {
+				options = options || {};
+				return this.each(function() {
+					new BeerSlider(this, options);
+				});
+			};
+			$('.beer-slider').BeerSlider({start: 50});
+			$("#caricamento").hide();
 				$(window).on('load', function () {
-					new BeerSlider( document.getElementById( "slider1" ) );
-					new BeerSlider( document.getElementById( "slider2" ) );
-					new BeerSlider( document.getElementById( "slider3" ) );
-					new BeerSlider( document.getElementById( "slider4" ) );
-					$("#caricamento").hide();
+
 					/*document.querySelectorAll('.cocoen').forEach(function(element){
 					  new Cocoen(element);
 

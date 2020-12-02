@@ -1,14 +1,18 @@
 /*
- * ImageComparison: Slider to quickly compare two images.
+ * imageComparison: Slider to quickly compare two images.
+ * 1.1.1
  *
  * By Max Ulyanov
  * Src: https://github.com/M-Ulyanov/ImageComparison/
  * Example https://m-ulyanov.github.io/image-comparison/
  */
 
-(function(root){
 
-    const defaultOptions = {
+;(function () {
+
+    'use strict';
+
+    var defaultOptions = {
         container: null,
         startPosition: 50,
         data: null
@@ -19,7 +23,7 @@
      * Constructor
      * @param options
      */
-    function ImageComparison (options) {
+    var ImageComparison = function (options) {
         this.options = utils.extend({}, [defaultOptions, options], {
             clearEmpty: true
         });
@@ -40,7 +44,7 @@
 
         this._build();
         this._setEvents();
-    }
+    };
 
 
     /**
@@ -97,11 +101,11 @@
             comparison._comparisonSeparator.classList.remove('actived');
         });
 
-        utils.setMultiEvents(document.body, ['mousemove', 'touchmove'], function (event) {
+        utils.setMultiEvents(document.body, ['mousemove', 'touchmove'], function () {
             if (comparison._comparisonSeparator.classList.contains('actived')) {
                 comparison._calcPosition(event);
-                if (document['selection']) {
-                    document['selection'].empty();
+                if (document.selection) {
+                    document.selection.empty();
                 }
             }
         });
@@ -300,16 +304,7 @@
     };
 
 
-    if (typeof define === 'function' && define.amd) {
-        define('ImageComparison', [], function () {
-            return ImageComparison;
-        });
-    }
-    else {
-        root.ImageComparison = ImageComparison;
-    }
+    // Import name global scope
+    window.ImageComparison = ImageComparison;
 
-
-}(this));
-
-
+})();

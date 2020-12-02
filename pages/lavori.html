@@ -145,10 +145,8 @@
 			<script type="text/javascript" src="/assets/js/floating-wpp.min.js"></script>
 			<script src="/assets/js/ImageComparison.js"></script>
 			<script>
-			$(".comparison-image").hide();
 			$('.comparison-image').on('load', domReady);
 			function domReady() {
-					$(".comparison-image").show();
 					var imageComparisonCollection = document.querySelectorAll('.js-comparison-container');
 					for (var i = 0; i < imageComparisonCollection.length; i++) {
 						var imageWidget = imageComparisonCollection[i];

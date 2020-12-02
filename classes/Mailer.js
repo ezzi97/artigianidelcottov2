@@ -1,12 +1,13 @@
 const nodemailer = require("nodemailer");
 const fs = require("fs");
 const ejs = require("ejs");
+var smtpTransport = require('nodemailer-smtp-transport');
 
 class Mailer {
     constructor(){
       this.smtpTrans = nodemailer.createTransport(smtpTransport({
           host: "smtp.gmail.com",
-          service: "smail",
+          service: "gmail",
           auth: {
             user: ""+process.env.GMAIL_USER,
             pass: ""+process.env.GMAIL_PASS

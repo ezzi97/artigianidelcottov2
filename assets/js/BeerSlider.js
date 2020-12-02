@@ -1402,7 +1402,6 @@
       }, {
         key: "onImagesLoad",
         value: function() {
-          console.log(this);
           var t = this;
           this.revealElement && this.loadedBoth().then(function() {
             t.init()

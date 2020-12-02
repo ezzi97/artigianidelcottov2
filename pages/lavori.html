@@ -7,7 +7,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
-		<link type="text/css" href="/assets/css/beforeafter.css" rel="stylesheet">
+		<link rel="stylesheet" href="/assets/css/beerSlider.css" />
 		<link rel="stylesheet" href="/assets/css/floating-wpp.css">
 		<link rel="stylesheet" href="/assets/css/aos.css" />
 	</head>
@@ -74,57 +74,37 @@
 								  </div>
 								</div>
 							</div>
-							<div class="col-6 col-6-medium col-12-small">
-								<span class="image fit">
-									<div class="ba-slider image1" data-aos="zoom-in-up">
-										 <!-- The before image is first -->
-										 <img src="/images/before_after/after_01.jpeg" alt="" />
-										 <!-- The after image is last -->
-										 <div class="resize">
+							<div class="col-4 col-6-medium col-12-small">
+									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo">
+										<img src="/images/before_after/after_01.jpeg" alt="" />
+										 <div class="beer-reveal" data-beer-label="prima">
 											 <img src="/images/before_after/before_01.jpeg" alt="" />
 										 </div>
-										 <span class="handle"></span>
 									</div>
-								</span>
 							</div>
-							<div class="col-6 col-6-medium col-12-small">
-								<span class="image fit">
-									<div class="ba-slider image2" data-aos="zoom-in-up">
-										 <!-- The before image is first -->
-										 <img src="/images/before_after/after_02.jpeg" alt="" />
-										 <!-- The after image is last -->
-										 <div class="resize">
-											 <img src="/images/before_after/before_02.jpeg" alt="" />
-										 </div>
-										 <span class="handle"></span>
+							<div class="col-4 col-6-medium col-12-small">
+									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo">
+										<img src="/images/before_after/after_02.jpeg" alt="" />
+										<div class="beer-reveal" data-beer-label="prima">
+											<img src="/images/before_after/before_02.jpeg" alt="" />
+										</div>
 									</div>
-								</span>
 							</div>
-							<div class="col-6 col-6-medium col-12-small">
-								<span class="image fit">
-									<div class="ba-slider image3" data-aos="zoom-in-up">
-										 <!-- The before image is first -->
+							<div class="col-4 col-6-medium col-12-small">
+									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo">
 										 <img src="/images/before_after/after_03.jpeg" alt="" />
-										 <!-- The after image is last -->
-										 <div class="resize">
-											 <img src="/images/before_after/before_03.jpeg" alt="" />
-										 </div>
-										 <span class="handle"></span>
+										 <div class="beer-reveal" data-beer-label="prima">
+											<img src="/images/before_after/before_03.jpeg" alt="" />
+											</div>
 									</div>
-								</span>
 							</div>
-							<div class="col-6 col-6-medium col-12-small">
-								<span class="image fit">
-									<div class="ba-slider image4" data-aos="zoom-in-up">
-										 <!-- The before image is first -->
-										 <img src="/images/before_after/after_04.jpeg" alt="" />
-										 <!-- The after image is last -->
-										 <div class="resize">
-											 <img src="/images/before_after/before_04.jpeg" alt="" />
-										 </div>
-										 <span class="handle"></span>
+							<div class="col-4 col-6-medium col-12-small">
+									<div data-aos="zoom-in-up" class="beer-slider" data-beer-label="dopo">
+										<img src="/images/before_after/after_04.jpeg" alt="" />
+										<div class="beer-reveal" data-beer-label="prima">
+											<img src="/images/before_after/before_04.jpeg" alt="" />
+										</div>
 									</div>
-								</span>
 							</div>
 						</div>
 					</div>
@@ -166,21 +146,27 @@
 		</div>
 		<!-- Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>
-			<script src="/assets/js/beforeafter.js" type="text/javascript"></script>
+			<script src="/assets/js/beerSlider.js"></script>
 			<script src="/assets/js/browser.min.js"></script>
 			<script src="/assets/js/breakpoints.min.js"></script>
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
 			<script type="text/javascript" src="/assets/js/floating-wpp.min.js"></script>
 			<script>
-			$(".ba-slider").hide();
+
 				$(window).on('load', function () {
-					$('.image1').beforeAfter();
-					$('.image2').beforeAfter();
-					$('.image3').beforeAfter();
-					$('.image4').beforeAfter();
-					$(".ba-slider").slideDown();
+					$.fn.BeerSlider = function ( options ) {
+				    options = options || {};
+				    return this.each(function() {
+				      new BeerSlider(this, options);
+				    });
+				  };
+				  $('.beer-slider').BeerSlider({start: 50});
 					$("#caricamento").hide();
+					/*document.querySelectorAll('.cocoen').forEach(function(element){
+					  new Cocoen(element);
+
+					});*/
 				});
 			</script>
 			<script type="text/javascript">

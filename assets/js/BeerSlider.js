@@ -1404,6 +1404,7 @@
         value: function() {
           var t = this;
           console.log(this.revealElement);
+          console.log(this.loadedBoth());
           this.revealElement && this.loadedBoth().then(function() {
             t.init()
           }, function() {

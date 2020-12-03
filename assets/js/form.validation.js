@@ -43,9 +43,16 @@ $().ready(function() {
                 'oggetto': oggetto
             }),
             success: function(msg) {
-              console.log(msg);
               $("#caricamentoSubmit").hide();
-              $("#submitButton").show();
+              $("#submitButton").show("slow");
+              $(".messageSuccess").show("slow");
+              $(".messageError").hide();
+            },
+            error: function(msg) {
+              $("#caricamentoSubmit").hide();
+              $("#submitButton").show("slow");
+              $(".messageError").show("slow");
+              $(".messageSuccess").hide();
             }
           });
         }

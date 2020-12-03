@@ -21,9 +21,12 @@ app.use(bodyParser.json());
 const pagine = __dirname + "/pages/";
 const mainDir = __dirname + "/";
 
-
 app.get('/contattaci(.html)?', function (req, res) {
   res.status(200).sendFile(pagine + "contattaci.html" );
+});
+
+app.get('/servizi(.html)?', function (req, res) {
+  res.status(200).sendFile(pagine + "servizi.html" );
 });
 
 app.get('/i_nostri_lavori(.html)?', function (req, res) {
@@ -35,8 +38,8 @@ app.get('/chi_siamo(.html)?', function (req, res) {
 });
 
 app.post('/manda_email', function(req, res) {
-  mailSender.sendEmail(req.body, function() {
-    res.status(200).json({statusCode: 200, message: "Email inviata con successo"});
+  mailSender.sendEmail(req.body, function(risposta) {
+    res.status(risposta.statusCode).json({statusCode: risposta.statusCode});
   });
 });
 

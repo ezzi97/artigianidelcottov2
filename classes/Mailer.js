@@ -9,8 +9,8 @@ class Mailer {
           host: "smtp.gmail.com",
           service: "gmail",
           auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASS
+            user: process.env.GMAIL_USER || "trucesdin@gmail.com",
+            pass: process.env.GMAIL_PASS || "Ezeddin@97@"
           }
       }));
     }
@@ -27,13 +27,13 @@ class Mailer {
               return;
             } else {
               console.log("im here!!");
-                smtpSender.sendMail({from: ''+process.env.GMAIL_USER, to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
+                smtpSender.sendMail({from: process.env.GMAIL_USER || "trucesdin@gmail.com", to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
                     if (error) {
                       callback({error: error, statusCode: 403});
                       return;
                     }
                     else {
-                      callback({success: response, statusCode: 200});
+                      callback({success: "Email inviata con successo", statusCode: 200});
                       return;
                     }
                 });
@@ -51,7 +51,7 @@ class Mailer {
       console.log(params);
       this.mailOpts = {
         from: ''+params.email, // This is ignored by Gmail
-        to: ''+process.env.GMAIL_USER,
+        to: process.env.GMAIL_USER || "trucesdin@gmail.com",
         subject: ''+params.oggetto,
         text: `Il signor ${params.name} (con email: ${params.email}) chiede: ${params.message}`
       }

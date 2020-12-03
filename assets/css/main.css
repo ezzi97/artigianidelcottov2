@@ -603,7 +603,8 @@ ul {
     padding-left: 0; }
     ul.alt li {
       border-top: solid 1px;
-      padding: 0.75rem 0; }
+      padding: 0.75rem 0;
+      margin: 0 1.5em 0 0;}
       ul.alt li:first-child {
         border-top: 0;
         padding-top: 0; }
@@ -822,12 +823,17 @@ table.alt tbody tr td {
   background: #ffffff;
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.025); }
 
-.highlights > section > .content > header > h3 {
+.highlights > section > .content header h3 {
     font-weight: bold;
     color: #e8a87c; /* #05386B*/
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: #c38d9e;
     text-shadow: 0.5px 0 #e8a87c;
+}
+
+.services {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Testimonials */
@@ -2245,7 +2251,7 @@ nav.notresponsive a:hover:after {
     color: #ffffff;
     font-weight: 500;
     -webkit-text-stroke-width: 0.75px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color: #E0E0E0;
     text-shadow: 0.5px 0 #05386B;
     letter-spacing: 0.5px;
     }
@@ -2677,8 +2683,6 @@ body {
 #heading {
   -ms-flex-align: center;
   -ms-flex-pack: center;
-  background-color: #85DCBA;
-  color: white;
   -moz-align-items: center;
   -webkit-align-items: center;
   -ms-align-items: center;
@@ -2691,11 +2695,6 @@ body {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  background: linear-gradient(135deg, #348f50 0%, #56b4d3 74%);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-top: 0;
   display: -ms-flexbox;
   min-height: 10rem;
@@ -3211,3 +3210,77 @@ ul.service {
     margin: 20px 0;
     display: inline-block;}
   .contant_box_404{ margin-top:-50px;}
+  .messageError {
+    color: #AC3B61;
+    font-weight: bold;
+  }
+  .messageSuccess {
+    color: #14A76C;
+    font-weight: bold;
+  }
+.StreamsHero-image {
+  /* Wave Color */
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#59adeb+0,42c2b5+52,34ce93+100 */
+  background: #59adeb;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #05386B 0%, #0c0032 52%, #240090 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #05386B 0%, #0c0032 52%, #240090 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #05386B 0%, #0c0032 52%, #240090 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#05386B', endColorstr='#240090', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  background-size: 350% 350%;
+  animation: waveColors 16s ease infinite;
+  /* End Wave Color */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.StreamsHero-header {
+  color: #fff;
+  font-weight: 200;
+  line-height: 48px;
+  margin-bottom: -5px;
+  font-size: 32px;
+}
+
+.StreamsHero-blurb {
+  color: #fff;
+  max-width: 100% !important;
+  font-weight: 200;
+  opacity: 1;
+  -ms-filter: "alpha(opacity=70)";
+  transition: opacity 300ms linear;
+}
+
+/* Animation Wave Color */
+
+@-webkit-keyframes waveColors {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+
+@keyframes waveColors {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}

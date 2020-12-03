@@ -74,28 +74,28 @@
 								  </div>
 								</div>
 							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<div class="js-comparison-container">
-								   <img src="/images/before_after/before_01.jpeg" class="comparison-image" alt="Original Image">
-								   <img src="/images/before_after/after_01.jpeg" class="comparison-image" alt="Modified Image">
+							<div class="col-6 col-6-medium col-12-small">
+								<div class="b-dics slider">
+								   <img src="/images/before_after/before_01.jpeg" alt="Prima">
+								   <img src="/images/before_after/after_01.jpeg" alt="Dopo">
 								</div> <!-- cd-image-container -->
 							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<div class="js-comparison-container">
-									 <img src="/images/before_after/before_02.jpeg" class="comparison-image" alt="Original Image">
-									 <img src="/images/before_after/after_02.jpeg" class="comparison-image" alt="Modified Image">
+							<div class="col-6 col-6-medium col-12-small">
+								<div class="b-dics slider">
+									 <img src="/images/before_after/before_02.jpeg" alt="Prima">
+									 <img src="/images/before_after/after_02.jpeg" alt="Dopo">
 								</div> <!-- cd-image-container -->
 							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<div class="js-comparison-container">
-									 	<img src="/images/before_after/before_03.jpeg" class="comparison-image" alt="Original Image">
-										<img src="/images/before_after/after_03.jpeg" class="comparison-image" alt="Modified Image">
+							<div class="col-6 col-6-medium col-12-small">
+								<div class="b-dics slider">
+									 	<img src="/images/before_after/before_03.jpeg" alt="Prima">
+										<img src="/images/before_after/after_03.jpeg" alt="Dopo">
 								</div> <!-- cd-image-container -->
 							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<div class="js-comparison-container">
-									 	<img src="/images/before_after/before_04.jpeg" class="comparison-image" alt="Original Image">
-										<img src="/images/before_after/after_04.jpeg" class="comparison-image" alt="Modified Image">
+							<div class="col-6 col-6-medium col-12-small">
+								<div class="b-dics slider">
+									 	<img src="/images/before_after/before_04.jpeg" alt="Prima">
+										<img src="/images/before_after/after_04.jpeg" alt="Dopo">
 								</div> <!-- cd-image-container -->
 							</div>
 						</div>
@@ -145,29 +145,15 @@
 			<script type="text/javascript" src="/assets/js/floating-wpp.min.js"></script>
 			<script src="/assets/js/ImageComparison.js"></script>
 			<script>
-			$('.comparison-image').on('load', domReady);
-			function domReady() {
-					var imageComparisonCollection = document.querySelectorAll('.js-comparison-container');
-					for (var i = 0; i < imageComparisonCollection.length; i++) {
-						var imageWidget = imageComparisonCollection[i];
-						var images = imageWidget.querySelectorAll('.comparison-image');
-						new ImageComparison({
-							container: imageWidget,
-							startPosition: 50,
-							data: [
-								{
-									image: images[0],
-									label: 'Prima'
-								},
-								{
-									image: images[1],
-									label: 'Dopo'
-								}
-							],
+				$(window).on('load', function() {
+					var doc = document.querySelectorAll(".slider");
+					doc.forEach(function(item) {
+						new Dics({
+					    container: item
 						});
-					}
+					});
 					$("#caricamento").hide();
-				};
+				});
 			</script>
 			<script type="text/javascript">
 			  $(function () {

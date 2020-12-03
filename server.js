@@ -14,7 +14,6 @@ app.use('/assets/sass/components', express.static(__dirname + '/assets/sass/comp
 app.use('/assets/sass/layout', express.static(__dirname + '/assets/sass/layout'));
 app.use('/assets/sass/lib', express.static(__dirname + '/assets/sass/lib'));
 app.use('/images', express.static(__dirname + '/images'));
-app.use('/images/before_after/', express.static(__dirname + '/images/before_after/'));
 app.use('/pages', express.static(__dirname + '/pages'));
 app.use('/classes', express.static(__dirname + '/classes'));
 app.use(bodyParser.urlencoded({extended:true}));

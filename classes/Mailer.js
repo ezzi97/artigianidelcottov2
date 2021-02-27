@@ -4,7 +4,8 @@ const sgMail = require('@sendgrid/mail')
 
 class Mailer {
     constructor(){
-      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+      //process.env.SENDGRID_API_KEY
+      sgMail.setApiKey("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");
     }
     sendEmail(params, callback) {
       console.log(params);

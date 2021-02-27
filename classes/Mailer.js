@@ -7,41 +7,37 @@ class Mailer {
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     }
     sendEmail(params, callback) {
-      console.log(params);
-      /*ejs.renderFile(__dirname + "/email.ejs", { nome: params.name }, function (err, data) {
+      this.readEmailTemplate(params, function(data) {
+        if (data.statusCode == 200) {
+          const msg_send_to_admin = {
+            to: ""+params.email,
+            from: "trucesdin@gmail.com",
+            subject: "No-reply Artigianidelcotto",
+            text: "",
+            html: ''+data.html,
+          }
+          sgMail
+            .send(msg_send_to_admin)
+            .then(() => {
+              console.log("Email inviata con successo");
+              callback({success: "Email inviata con successo", statusCode: 200});
+            })
+            .catch((error) => {
+              console.log(error);
+              callback({error: error, statusCode: 403})
+            })
+        }
+        callback({success: "Email inviata con successo", statusCode: 200});
+      });
+    }
+    readEmailTemplate(params, callback) {
+      ejs.renderFile(__dirname + "/email.ejs", { nome: params.name }, function (err, data) {
         if (err) {
           callback({error: err, statusCode: 403});
-          return;
         } else {
-            smtpSender.sendMail({from: process.env.GMAIL_USER, to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
-                if (error) {
-                  callback({error: error, statusCode: 403});
-                  return;
-                }
-                else {
-                  callback({success: "Email inviata con successo", statusCode: 200});
-                  return;
-                }
-            });
+          callback({html: data, statusCode: 200})
           }
-        });*/
-      const msg_send_to_admin = {
-        to: ""+params.email,
-        from: "trucesdin@gmail.com",
-        subject: ""+params.oggetto,
-        text: ""+params.message,
-        html: '<strong>'+params.message+'</strong>',
-      }
-      sgMail
-        .send(msg_send_to_admin)
-        .then(() => {
-          console.log("Email inviata con successo");
-          callback({success: "Email inviata con successo", statusCode: 200});
-        })
-        .catch((error) => {
-          console.log(error);
-          callback({error: error, statusCode: 403})
-        })
+        });
     }
 }
 

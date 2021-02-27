@@ -19,14 +19,11 @@ class Mailer {
       var smtpSender = this.smtpTrans;
       this.sendToAdminEmail(params, function(ris) {
         if (ris.statusCode === 200) {
-          console.log("rendering ejs file!!");
           ejs.renderFile(__dirname + "/email.ejs", { nome: params.name }, function (err, data) {
             if (err) {
-              console.log(err);
               callback({error: err, statusCode: 403});
               return;
             } else {
-              console.log("im here!!");
                 smtpSender.sendMail({from: process.env.GMAIL_USER, to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
                     if (error) {
                       callback({error: error, statusCode: 403});

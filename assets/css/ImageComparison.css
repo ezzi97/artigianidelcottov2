@@ -227,3 +227,13 @@
     -ms-transform : translate(-50%, -50%);
     transform : translate(-50%, -50%);
 }
+@media screen and (max-width: 736px) {
+  .b-dics {
+      max-height: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .b-dics {
+      max-height: none;
+  }
+}

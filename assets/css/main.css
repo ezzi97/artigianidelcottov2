@@ -241,6 +241,7 @@ h1, h2, h3, h4, h5, h6 {
 .domanda {
   font-weight: bold;
   border-bottom: 1px solid #05386B;
+  font-family: "system-ui";
 }
 
 blockquote {
@@ -2143,7 +2144,7 @@ nav.notresponsive a:hover:after {
       #banner .inner {
         width: 100%; }
       #banner h1 {
-        font-size: 1.75rem;
+        font-size: 2rem;
         margin-bottom: 0.5rem;
         padding-bottom: 0; }
       #banner p {
@@ -2176,15 +2177,24 @@ nav.notresponsive a:hover:after {
   -ms-transition-delay: 1s;
   transition-delay: 1s;
   background: #85DCBA;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
   content: '';
   display: block;
   height: 100%;
   left: 0;
-  opacity: 0.4;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 1;
+  background-image: url(../../images/perilsito/cta01.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   }
 /*#cta {
   background-color: #85DCBA;
@@ -2216,11 +2226,6 @@ nav.notresponsive a:hover:after {
     -webkit-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
-    background-image: url(../../images/perilsito/cta01.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-top: 0;
     display: -ms-flexbox;
     overflow: hidden;
@@ -2228,7 +2233,7 @@ nav.notresponsive a:hover:after {
     text-align: center;
     width: 100%;
 }
-  #cta:after {
+/*#cta:after {
     background: linear-gradient(135deg, rgb(232, 168, 124, 0.5) 0%, rgb(133, 220, 186, 0.5) 74%);
     content: ' ';
     display: block;
@@ -2240,13 +2245,14 @@ nav.notresponsive a:hover:after {
     webkit-linear-gradientidth: 100%;
     width: 100%;
     z-index: 1;
-}
+}*/
   #cta input, #cta select, #cta textarea {
     color: #ffffff; }
   #cta a {
     color: #ffffff; }
   #cta strong, #cta b {
     color: #ffffff; }
+
   #cta h1, #cta h2, #cta h3, #cta h4, #cta h5, #cta h6, #heading h2 {
     color: #ffffff;
     font-weight: 500;
@@ -3043,7 +3049,7 @@ body.is-menu-visible #menu {
   box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
   visibility: visible; }
 
-.wrapper > .inner > .special > h3 {
+.wrapper > .inner > .special > h3, h2 {
   font-weight: 900;
   color: #05386B;
   -webkit-text-stroke-width: 1px;

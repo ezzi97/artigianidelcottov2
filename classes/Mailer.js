@@ -39,7 +39,6 @@ class Mailer {
         text: 'and easy to do anywhere, even with Node.js',
         html: '<strong>and easy to do anywhere, even with Node.js</strong>',
       }
-      sgMail.send(msg_send_to_user);
       sgMail
         .send(msg_send_to_admin)
         .then(() => {

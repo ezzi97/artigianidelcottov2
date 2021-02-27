@@ -1,68 +1,44 @@
-const nodemailer = require("nodemailer");
 const fs = require("fs");
 const ejs = require("ejs");
-var smtpTransport = require('nodemailer-smtp-transport');
+const sgMail = require('@sendgrid/mail')
 
 class Mailer {
     constructor(){
-      this.smtpTrans = nodemailer.createTransport(smtpTransport({
-          host: "smtp.gmail.com",
-          service: "gmail",
-          auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASS
-          }
-      }));
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     }
     sendEmail(params, callback) {
-      var parametri = params;
-      var smtpSender = this.smtpTrans;
-      this.sendToAdminEmail(params, function(ris) {
-        if (ris.statusCode === 200) {
-          ejs.renderFile(__dirname + "/email.ejs", { nome: params.name }, function (err, data) {
-            if (err) {
-              callback({error: err, statusCode: 403});
-              return;
-            } else {
-                smtpSender.sendMail({from: process.env.GMAIL_USER, to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
-                    if (error) {
-                      callback({error: error, statusCode: 403});
-                      return;
-                    }
-                    else {
-                      callback({success: "Email inviata con successo", statusCode: 200});
-                      return;
-                    }
-                });
-              }
-            });
-        }
-        else {
-          console.log(ris.error);
-          callback({error: ris.error, statusCode: ris.statusCode});
+      /*ejs.renderFile(__dirname + "/email.ejs", { nome: params.name }, function (err, data) {
+        if (err) {
+          callback({error: err, statusCode: 403});
           return;
-        }
-      });
-    }
-    sendToAdminEmail(params, callback) {
-      console.log(params);
-      this.mailOpts = {
-        from: ''+params.email, // This is ignored by Gmail
-        to: process.env.GMAIL_USER,
-        subject: ''+params.oggetto,
-        text: `Il signor ${params.name} (con email: ${params.email}) chiede: ${params.message}`
+        } else {
+            smtpSender.sendMail({from: process.env.GMAIL_USER, to: ""+parametri.email, subject: 'No-Reply Artigianidelcotto', html: data}, (error, response) => {
+                if (error) {
+                  callback({error: error, statusCode: 403});
+                  return;
+                }
+                else {
+                  callback({success: "Email inviata con successo", statusCode: 200});
+                  return;
+                }
+            });
+          }
+        });*/
+      const msg = {
+        to: 'test@example.com', // Change to your recipient
+        from: 'test@example.com', // Change to your verified sender
+        subject: 'Sending with SendGrid is Fun',
+        text: 'and easy to do anywhere, even with Node.js',
+        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
       }
-      this.smtpTrans.sendMail(this.mailOpts, (error, response) => {
-          if (error) {
-            callback({error: error, statusCode: 403});
-            return;
-          }
-          else {
-            callback({success: response, statusCode: 200});
-            return;
-          }
-      });
-      return;
+      sgMail
+        .send(msg)
+        .then(() => {
+          callback({success: "Email inviata con successo", statusCode: 200});
+        })
+        .catch((error) => {
+          callback({error: error, statusCode: 403})
+        })
     }
 }
 

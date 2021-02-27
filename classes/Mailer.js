@@ -28,13 +28,14 @@ class Mailer {
       const msg_send_to_admin = {
         to: "trucesdin@gmail.com",
         from: ""+params.email,
-        subject: ""+params.soggetto,
+        subject: ""+params.oggetto,
         text: ""+params.message,
+        html: '<strong>'+params.message+'</strong>',
       }
       const msg_send_to_user = {
         to: ''+params.email, // Change to your recipient
         from: 'trucesdin@gmail.com', // Change to your verified sender
-        subject: ''+params.soggetto,
+        subject: ''+params.oggetto,
         text: 'and easy to do anywhere, even with Node.js',
         html: '<strong>and easy to do anywhere, even with Node.js</strong>',
       }

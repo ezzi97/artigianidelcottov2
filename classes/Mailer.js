@@ -4,6 +4,8 @@ const sgMail = require('@sendgrid/mail')
 
 class Mailer {
     constructor(){
+      //"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"
+      //
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     }
     sendEmail(params, callback) {
@@ -27,7 +29,10 @@ class Mailer {
               callback({error: error, statusCode: 403})
             })
         }
-        callback({success: "Email inviata con successo", statusCode: 200});
+        else {
+          console.log("ERRORE 403");
+          callback({success: "Email inviata con successo", statusCode: 200});
+        }
       });
     }
     readEmailTemplate(params, callback) {

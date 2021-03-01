@@ -2628,6 +2628,9 @@ body {
   z-index: 10001; }
   #header > .logo {
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1rem;
     font-weight: 600;
     height: inherit;
@@ -2884,10 +2887,22 @@ body {
   }
   @media screen and (max-width: 980px) {
     #main .content {
-      padding: 2rem; } }
+      padding: 2rem; }
+    .service {
+      padding: 1rem !important;
+    }
+  }
   @media screen and (max-width: 480px) {
     #main .content {
-      padding: 1.5rem; } }
+      padding: 1.5rem; }
+    .service {
+      padding: 1rem !important;
+      } }
+
+.service {
+  padding: 1rem !important;
+}
+
 
 /*#header > nav.notresponsive > a {
   display: block;
@@ -3294,4 +3309,23 @@ ul.service {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 1em;
   border-radius: 0.25em;
+}
+.images_work {
+  border-radius: 4px;
+}
+.logo_home {
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 80px;
+  max-height: 80px;
+  width: 55px;
+  height: 55px;
+}
+.logo_bar {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+.lavoro_rect {
+  margin-bottom: 10px;
 }

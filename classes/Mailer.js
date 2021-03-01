@@ -6,7 +6,7 @@ class Mailer {
     constructor(){
       //"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"
       //
-      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+      sgMail.setApiKey("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");
     }
     sendEmail(params, callback) {
       this.readEmailTemplate(params, function(data) {
@@ -15,7 +15,7 @@ class Mailer {
             to: ""+params.email,
             from: "trucesdin@gmail.com",
             subject: "No-reply Artigianidelcotto",
-            text: "",
+            text: "Abbiamo ricevuto la sua email, le risponderemo il più presto possibile",
             html: ''+data.html,
           }
           sgMail

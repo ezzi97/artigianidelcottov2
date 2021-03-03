@@ -8,8 +8,8 @@ class Mailer {
       //"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"
       //
       sgMail.setApiKey("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");
-      this.GMAIL_USER = process.env.GMAIL_USER;
-      this.GMAIL_PWD = process.env.GMAIL_PASS;
+      this.GMAIL_USER = "artigianidelcotto@gmail.com";
+      this.GMAIL_PWD = "Artigiani97";
       this.smtpTrans = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
@@ -21,10 +21,19 @@ class Mailer {
       });
     }
     sendEmail(params, callback) {
+      this.sendToUserEmail(params, function(data) {});
+      this.sendEmailToAdmin(params, function(data) {
+        callback(data);
+      });
+    }
+    sendEmailToAdmin(params, callback) {
+      console.log(params.email);
       const mailOpt = {
+        sender: "" + params.email,
+        replyTo: "" + params.email,
         from: "" + params.email,
         to: "" + this.GMAIL_USER,
-        subject: "" + this.oggetto + " da " + params.nome,
+        subject: "" + params.oggetto + " da " + params.name,
         text: "" + params.message
       }
       this.smtpTrans.sendMail(mailOpt, (error, response) => {
@@ -32,18 +41,17 @@ class Mailer {
           callback({error: error, statusCode: 403})
         }
         else {
-          sendToUserEmail(params.email, function(data) {
-            callback(data);
-          });
+          callback({success: "Email inviata ad Artigiani del Cotto con successo", statusCode: 200});
         }
       });
     }
-    sendToUserEmail(email, callback) {
+    sendToUserEmail(params, callback) {
+      const GMAIL_USER = this.GMAIL_USER;
       this.readEmailTemplate(params, function(data) {
         if (data.statusCode == 200) {
           const msg_send_to_admin = {
-            to: ""+email,
-            from: ""+this.GMAIL_USER,
+            to: ""+params.email,
+            from: ""+GMAIL_USER,
             subject: "No-reply Artigianidelcotto",
             text: "Abbiamo ricevuto la sua email, le risponderemo il più presto possibile",
             html: ''+data.html,

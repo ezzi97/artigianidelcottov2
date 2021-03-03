@@ -33,10 +33,6 @@ app.get('/i_nostri_lavori(.html)?', function (req, res) {
   res.status(200).sendFile(pagine + "lavori.html" );
 });
 
-app.get('/chi_siamo(.html)?', function (req, res) {
-  res.status(200).sendFile(pagine + "chisiamo.html" );
-});
-
 app.post('/manda_email', function(req, res) {
   mailSender.sendEmail(req.body, function(risposta) {
     res.status(risposta.statusCode).json({statusCode: risposta.statusCode});

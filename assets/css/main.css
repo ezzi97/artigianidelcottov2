@@ -2571,18 +2571,20 @@ nav.notresponsive a:hover:after {
         padding-right: 4rem; }
       #footer .content section:last-child {
         padding-left: 4rem; }
+        #footer p, li, .copyright, a {
+          font-size: medium !important;
+        }
   #footer .copyright {
     /*border-top: 1px solid #05386B;*/
     color: white;
     font-weight: bold;
-    font-size: 0.8rem;
     opacity: 1;
-    padding: 2rem 0;
+    padding: 1rem 0;
     text-align: center;
     cursor: default;}
   @media screen and (max-width: 1280px) {
     #footer {
-      padding: 4em 0 0 0 ; } }
+      padding: 2em 0 0 0 ; } }
   @media screen and (max-width: 980px) {
     #footer .content {
       -moz-flex-wrap: wrap;
@@ -2902,7 +2904,7 @@ body {
   border-radius: 4px;
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
   margin-bottom: 0rem;
-  padding: 3rem; }
+  padding: 1rem 3rem 1rem 3rem; }
   #main .foot {
     background: transparent;
 

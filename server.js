@@ -5,6 +5,7 @@ const mailSender = new Mailer();
 var app = express();
 
 app.use(express.static(__dirname + 'pages'));
+app.use(express.static('public'));
 app.use('/assets/js', express.static(__dirname + '/assets/js'));
 app.use('/assets/fonts', express.static(__dirname + '/assets/fonts'));
 app.use('/assets/css', express.static(__dirname + '/assets/css'));

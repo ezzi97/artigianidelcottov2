@@ -133,13 +133,23 @@ p {
 header.special {
   text-align: center;
   margin-bottom: 4rem; }
+header.special p {
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: serif;
+  font-size: larger;
+}
+@media screen and (max-width: 1280) {
   header.special p {
-    max-width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: serif;
+    font-size: small;
   }
-
+}
+@media screen and (max-width: 1280) {
+  header.special p {
+    font-size: small;
+  }
+}
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   line-height: 1.5;
@@ -1880,19 +1890,21 @@ nav.notresponsive a:hover:after {
 
 /* Wrapper */
 .wrapper {
-  padding: 4rem 0 6rem 0 ;
+  padding: 2rem 0 2rem 0 ;
   position: relative;
-  z-index: 1; }
-  @media screen and (max-width: 1280px) {
-    .wrapper {
-      padding: 2rem 0 0 0 ; } }
-  @media screen and (max-width: 736px) {
-    .wrapper {
-      padding: 2rem 0 1rem 0 ; } }
-  @media screen and (max-width: 480px) {
-    .wrapper {
-      padding: 2rem 0 0.1rem 0 ; } }
-
+  z-index: 1;
+  opacity: 1;}
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    padding: 2rem 0 0 0 ; } }
+@media screen and (max-width: 736px) {
+  .wrapper {
+    padding: 2rem 0 1rem 0 ; } }
+@media screen and (max-width: 480px) {
+  .wrapper {
+    padding: 2rem 0 0.1rem 0 ;
+     }
+   }
 /* Banner */
 #banner {
   -ms-flex-align: center;
@@ -2113,7 +2125,7 @@ nav.notresponsive a:hover:after {
     display: block;
     height: 100%;
     left: 0;
-    opacity: 0.6;
+    opacity: 0.3;
     position: absolute;
     top: 0;
     width: 100%;
@@ -2584,7 +2596,9 @@ nav.notresponsive a:hover:after {
   @media screen and (max-width: 480px) {
     #footer {
       padding: 2rem 0 0.1rem 0 ; } }
-
+#footer > .inner {
+  width: 90rem !important;
+}
 /* Header */
 body {
   padding-top: 3.25rem; }

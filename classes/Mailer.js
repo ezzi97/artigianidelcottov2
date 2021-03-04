@@ -6,7 +6,6 @@ const nodemailer = require('nodemailer');
 class Mailer {
     constructor(){
       //"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"
-      //
       sgMail.setApiKey("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");
       this.GMAIL_USER = "artigianidelcotto@gmail.com";
       this.GMAIL_PWD = "Artigiani97";
@@ -21,7 +20,9 @@ class Mailer {
       });
     }
     sendEmail(params, callback) {
-      this.sendToUserEmail(params, function(data) {});
+      this.sendToUserEmail(params, function(data) {
+        console.log(data);
+      });
       this.sendEmailToAdmin(params, function(data) {
         callback(data);
       });

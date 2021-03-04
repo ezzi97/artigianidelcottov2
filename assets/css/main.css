@@ -140,12 +140,12 @@ header.special p {
   font-family: serif;
   font-size: larger;
 }
-@media screen and (max-width: 1280) {
+@media screen and (max-width: 1280px) {
   header.special p {
-    font-size: small;
+    font-size: medium;
   }
 }
-@media screen and (max-width: 1280) {
+@media screen and (max-width: 480px) {
   header.special p {
     font-size: small;
   }
@@ -2177,6 +2177,14 @@ nav.notresponsive a:hover:after {
     opacity: 0; }
   body.is-preload #banner:before {
     opacity: 1; }
+    body.is-preload .wrapper {
+      -moz-transform: scale(0.99);
+      -webkit-transform: scale(0.99);
+      -ms-transform: scale(0.99);
+      transform: scale(0.99);
+      opacity: 0; }
+      body.is-preload .wrapper:before {
+        opacity: 1; }
 
 /* CTA */
 #cta:before {

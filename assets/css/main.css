@@ -31,7 +31,7 @@ body {
     -moz-transition: none !important;
     -webkit-transition: none !important;
     -ms-transition: none !important;
-    transition: none !important; }
+    transition: none !important;}
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -3118,7 +3118,7 @@ u {
   font-family: inherit;
 }
 .red {
-  color: #e27d60;
+  color: #FF8C00;
 }
 .image_icon {
   width: 5em;

@@ -53,7 +53,7 @@ app.get('/sitemap.xml', function (req, res) {
 });
 
 app.get('*', function(req, res){
-  res.status(200).sendFile(pagine + "404.html" );
+  res.status(404).sendFile(pagine + "404.html" );
 });
 
 const utente = process.env.email;

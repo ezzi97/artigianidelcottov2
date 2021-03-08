@@ -30,7 +30,7 @@ app.get('/servizi(.html)?', function (req, res) {
   res.status(200).sendFile(pagine + "servizi.html" );
 });
 
-app.get('/i_nostri_lavori(.html)?', function (req, res) {
+app.get('/lavori(.html)?', function (req, res) {
   res.status(200).sendFile(pagine + "lavori.html" );
 });
 

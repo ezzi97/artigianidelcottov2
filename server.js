@@ -44,6 +44,14 @@ app.get('/', function (req, res) {
   res.status(200).sendFile(pagine + "index.html" );
 });
 
+app.get('/robots.txt', function (req, res) {
+  res.status(200).sendFile(mainDir + "robots.txt" );
+});
+
+app.get('/sitemap.xml', function (req, res) {
+  res.status(200).sendFile(mainDir + "sitemap.xml" );
+});
+
 app.get('*', function(req, res){
   res.status(200).sendFile(pagine + "404.html" );
 });

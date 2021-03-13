@@ -122,6 +122,9 @@ a {
 
 strong, b {
   font-weight: 600; }
+  strong.red {
+    font-weight: normal;
+  }
 
 em, i {
   font-style: italic; }
@@ -2618,7 +2621,7 @@ body {
   padding-top: 3.25rem; }
   body:before {
     content: ' ';
-    background-image: url(../../images/bg.jpg);
+    background-image: url(../../images/lavorigenerale/villa_4.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -2629,7 +2632,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.05; }
+    opacity: 0.085; }
 
 #header {
   -moz-align-items: center;
@@ -3334,6 +3337,7 @@ ul.service {
   }
 }
 .imagesbox {
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 1em;
   border-radius: 0.25em;
@@ -3361,12 +3365,12 @@ ul.service {
   object-fit: cover;
 }
 .logo_home {
-  min-width: 30px;
-  min-height: 30px;
+  min-width: 40px;
+  min-height: 40px;
   max-width: 80px;
   max-height: 80px;
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
 }
 .logo_bar {
   width: 25px;

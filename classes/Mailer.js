@@ -6,9 +6,9 @@ const nodemailer = require('nodemailer');
 class Mailer {
     constructor(){
       //"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"
-      sgMail.setApiKey("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");
-      this.GMAIL_USER = "artigianidelcotto@gmail.com";
-      this.GMAIL_PWD = "Artigiani97";
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+      this.GMAIL_USER = process.env.GMAIL_USER;
+      this.GMAIL_PWD = process.env.GMAIL_PASS;
       this.smtpTrans = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,

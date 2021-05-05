@@ -20,15 +20,13 @@ class Mailer {
       });
     }
     sendEmail(params, callback) {
-      this.sendToUserEmail(params, function(data) {
-        console.log(data);
-      });
-      this.sendEmailToAdmin(params, function(data) {
-        callback(data);
+      this.sendToUserEmail(params, (data) => {
+        this.sendEmailToAdmin(params, (data) => {
+          callback(data);
+        });
       });
     }
     sendEmailToAdmin(params, callback) {
-      console.log(params.email);
       const mailOpt = {
         sender: "" + params.email,
         replyTo: "" + params.email,
@@ -60,16 +58,13 @@ class Mailer {
           sgMail
             .send(msg_send_to_admin)
             .then(() => {
-              console.log("Email inviata con successo");
               callback({success: "Email inviata con successo", statusCode: 200});
             })
             .catch((error) => {
-              console.log(error);
               callback({error: error, statusCode: 403})
             })
         }
         else {
-          console.log("ERRORE 403");
           callback({success: "Email inviata con successo", statusCode: 200});
         }
       });
